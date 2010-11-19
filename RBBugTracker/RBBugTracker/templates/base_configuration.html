@@ -1,0 +1,35 @@
+{% extends "admin/base_site.html" %}
+{% load djblets_deco %}
+{% load i18n %}
+{% block title %}{% trans "Configure RBBugTracker" %}{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+	function on_change()
+	{
+		document.getElementById('changed').value = 'true';
+	}
+</script>
+{% if not config_changed %}
+	<h1>Configure GoogleCode issue tracker</h1>
+{% else %}
+	<h1>Event configuration changed successfully</h1>
+{% endif %}
+
+<html>
+	<body>
+		{% block authentication %} {% endblock %}
+		<br/>
+		<form>
+			<h4>Please select the event(s) which you want to notify bug tracker.</h4>
+			<input type="checkbox" name="review_request" value="review_request" onClick="on_change()" {{review_request_checked}}/> An associated review request created<br />
+			<input type="checkbox" name="review" value="review" onClick="on_change()" {{review_checked}}/> An associated review published<br />
+			<input type="checkbox" name="reply" value="reply" onClick="on_change()" {{reply_checked}} /> An reply on associated review<br/>
+			<input type="hidden" name="changed" value="" id="changed"/>
+			<input type="submit" value="save"/>
+		</form>
+	</body>
+</html> 
+
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load djblets_deco %}
+{% load i18n %}
+{% block title %}{% trans "Configure GoogleCode issue tracker" %}{% endblock %}
+{% block content %}
+	{% if failed %}
+		<h3 style="color: red;">Failed to save username. Please make sure the username is not empty.</h3>		
+	{% else %}
+		<h3>Successfully login to GoogleCode.</h3>
+	{% endif %}
+	<form>
+		Please enter the successfully anthenticated user's name: <input type="text" name="username"/>
+		<br/>
+		<input type="submit" value="save"/>
+	</form>
+{% endblock content %}
+

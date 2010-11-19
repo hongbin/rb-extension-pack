@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% load djblets_deco %}
+{% load i18n %}
+{% block title %}{% trans "Configure GoogleCode issue tracker" %}{% endblock %}
+{% block content %}
+	<h3>Successfully saved username: {{username}}. GoogleCode issue tracker is ready to go with this extension.</h3>
+	<h4>What's next?</h4>
+	<ul>
+		<li><a href="{{googlecode_link}}">Continue to configure googlecode issue tracker</a></li>
+		<li><a href="{{tracker_list}}">Configure another issue tracker</a></li>
+		<li><a href="{{extension_list}}">Return to extensions main page</a></li>
+	</ul>
+{% endblock content %}
+

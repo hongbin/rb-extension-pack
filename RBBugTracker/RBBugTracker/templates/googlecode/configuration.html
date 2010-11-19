@@ -1,0 +1,12 @@
+{% extends "base_configuration.html" %}
+{% load djblets_deco %}
+{% load i18n %}
+{% block title %}{% trans "Configure GoogleCode issue tracker" %}{% endblock %}
+{% block authentication %}
+	{% if failed %}
+		<h3 style="color: red;">Login to Google account failed. <a href="{{login_link}}">Please try again</a></h3>	
+	{% else %}
+		<h3>You need to login to your GoogleCode account to use this extension. If you haven't done that, <a href="{{login_link}}">please click here.</a></h3>
+	{% endif %}
+{% endblock authentication %}
+
